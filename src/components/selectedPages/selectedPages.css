@@ -1,0 +1,21 @@
+body{
+  font-family: 'Montserrat',sans-serif;
+}
+
+.page-card {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page-card h2 {
+  margin-top: 0;
+}
+
+.page-card p {
+  margin-bottom: 0;
+}
