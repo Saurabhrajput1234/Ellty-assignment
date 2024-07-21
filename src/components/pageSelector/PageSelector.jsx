@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import $ from 'jquery';
 import './pageSelector.css';
 import { useNavigate } from 'react-router-dom';
 
 const PageSelector = ({ selectedPages, setSelectedPages, pages }) => {
   const [selectAll, setSelectAll] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    $("#popup").fadeIn().delay(2000).fadeOut();
+  }, []);
 
   const handleSelectAllChange = () => {
     if (selectAll) {
@@ -29,7 +34,11 @@ const PageSelector = ({ selectedPages, setSelectedPages, pages }) => {
 
   return (
     <div className='form-back'>
+     <div id="popup">
+          First select any page and click on the submit button. It will redirect you to the selected page.
+        </div>
       <div className="form-container">
+        <div className='selector' style={{"paddingInline":"6px"}}>
         <div className='selectAllContainer'>
           <span>All pages</span>
           <input className='check' type="checkbox" checked={selectAll} onChange={handleSelectAllChange} />
@@ -45,8 +54,10 @@ const PageSelector = ({ selectedPages, setSelectedPages, pages }) => {
             />
           </div>
         ))}
-        <div className="button-box"></div>
-        <button className='button' onClick={handleSubmit}>Done</button>
+        </div>
+        <div className="button-box">
+          <button className='button' onClick={handleSubmit}>Done</button>
+        </div>
       </div>
     </div>
   );
